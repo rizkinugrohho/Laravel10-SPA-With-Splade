@@ -15,8 +15,13 @@
                     <x-splade-input name="title" type="text" label="Title" placeholder="Input your title post" />
                     <x-splade-textarea name="content" autosize label="Content" />
                     <div class="flex gap-2 items-center">
-                        <button type="submit" class="bg-gray-700 p-2 text-white rounded-md text-sm flex items-center gap-1 hover:bg-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-floppy w-4 h-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <button type="submit"
+                            style="background-color: #4a5568; padding: 8px; color: white; border-radius: 4px; font-size: 0.875rem; display: flex; align-items: center; gap: 4px; transition: background-color 0.2s;"
+                            onmouseover="this.style.backgroundColor='#2d3748'" onmouseout="this.style.backgroundColor='#4a5568'">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-device-floppy w-4 h-4" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2"></path>
                                 <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
@@ -24,15 +29,20 @@
                             </svg>
                             Update
                         </button>
-                        <Link href="/posts" class="bg-rose-700 p-2 text-white rounded-md text-sm flex items-center gap-1 hover:bg-rose-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left w-4 h-4" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M5 12l14 0"></path>
-                            <path d="M5 12l4 4"></path>
-                            <path d="M5 12l4 -4"></path>
-                        </svg>
-                        Back
-                        </Link>
+                        <a href="/posts"
+                            style="background-color: #e53e3e; padding: 8px; color: white; border-radius: 4px; font-size: 0.875rem; display: flex; align-items: center; gap: 4px; transition: background-color 0.2s;"
+                            onmouseover="this.style.backgroundColor='#c53030'" onmouseout="this.style.backgroundColor='#e53e3e'">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-arrow-narrow-left w-4 h-4" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M5 12l14 0"></path>
+                                <path d="M5 12l4 4"></path>
+                                <path d="M5 12l4 -4"></path>
+                            </svg>
+                            Back
+                        </a>
                     </div>
                 </div>
                 {{-- preview image --}}
