@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use ProtoneMedia\Splade\SpladeTable;
 
 class PostController extends Controller
@@ -57,6 +58,54 @@ class PostController extends Controller
             'content' => $request->content,
             'image' => $image->hashName(),
         ]);
+
+        // render view
+        return redirect(route('posts.index'));
+    }
+
+    /**
+     *  display form edit
+     */
+    public function edit(Post $post)
+    {
+        // render view
+        return view('posts.edit', [
+            'post' => $post
+        ]);
+    }
+
+    /**
+     *  update post data by id
+     */
+    public function update(Post $post, Request $request)
+    {
+        // validate request
+        $this->validate($request, [
+            'image'     => 'nullable|image|mimes:jpeg,jpg,png',
+            'title'     => 'required|min:5',
+            'content'   => 'required|min:10'
+        ]);
+
+        // update post data by id
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+
+        // check if user upload new image
+        if ($request->file('image')) {
+            // upload image
+            $image = $request->file('image');
+            $image->storeAs('public/posts', $image->hashName());
+
+            // delete old image
+            Storage::delete('public/posts/' . $post->image);
+
+            // update post data image
+            $post->update([
+                'image' => $image->hashName(),
+            ]);
+        }
 
         // render view
         return redirect(route('posts.index'));
