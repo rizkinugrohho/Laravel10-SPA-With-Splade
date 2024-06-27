@@ -25,4 +25,40 @@ class PostController extends Controller
                 ->column('action')
         ]);
     }
+
+    /**
+     *  display form create
+     */
+    public function create()
+    {
+        // render view
+        return view('posts.create');
+    }
+
+    /**
+     *  insert new post data
+     */
+    public function store(Request $request)
+    {
+        // validate request
+        $this->validate($request, [
+            'image'     => 'required|image|mimes:jpeg,jpg,png',
+            'title'     => 'required|min:5',
+            'content'   => 'required|min:10'
+        ]);
+
+        // upload image
+        $image = $request->file('image');
+        $image->storeAs('public/posts', $image->hashName());
+
+        // insert new post to db
+        Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $image->hashName(),
+        ]);
+
+        // render view
+        return redirect(route('posts.index'));
+    }
 }
