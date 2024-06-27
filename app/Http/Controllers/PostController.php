@@ -110,4 +110,19 @@ class PostController extends Controller
         // render view
         return redirect(route('posts.index'));
     }
+
+    /**
+     *  delete post data by id
+     */
+    public function destroy(Post $post)
+    {
+        // delete post image
+        Storage::delete('public/posts/' . $post->image);
+
+        // delete post data by id
+        $post->delete();
+
+        // render view
+        return back();
+    }
 }
