@@ -1,3 +1,9 @@
+## Demo
+![1](https://github.com/rizkinugrohho/Laravel10-SPA-With-Splade/assets/36374356/83bf48f7-10a8-44c7-b581-c526187a5228)
+
+![2](https://github.com/rizkinugrohho/Laravel10-SPA-With-Splade/assets/36374356/2f08f83d-1d23-4b72-b67b-6cb3ee4ffc44)
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
